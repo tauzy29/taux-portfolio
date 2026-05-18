@@ -1,11 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: "export",
   images: {
-    // Allow any local images in the /public folder
-    unoptimized: false,
+    unoptimized: true,
   },
-  // Allow images from external sources if needed later
   experimental: {},
 };
 
