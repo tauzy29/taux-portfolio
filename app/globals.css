@@ -1,26 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #0d0d0d;
+  --surface: #161616;
+  --card: #1b1b1b;
+  --border: #2b2b2b;
+  --accent-blue: #4da3ff;
+  --accent-violet: #6f7dff;
+  --text-primary: #ededed;
+  --text-muted: #909090;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (min-width: 1024px) {
+  html { cursor: none; }
+}
+
+.section-pad {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .section-pad {
+    padding-top: 6.5rem;
+    padding-bottom: 6.5rem;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.font-bebas { font-family: 'Bebas Neue', cursive; }
+
+.display-title {
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 0.06em;
+  line-height: 0.92;
+  font-size: 5rem;
 }
+
+@media (min-width: 768px) {
+  .display-title { font-size: 9rem; }
+}
+
+.section-title {
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 0.06em;
+  font-size: 3rem;
+}
+
+@media (min-width: 768px) {
+  .section-title { font-size: 3.75rem; }
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  background: var(--accent-blue);
+}
+
+.cursor-ring {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  border: 1px solid rgba(77, 163, 255, 0.5);
+  position: fixed;
+  z-index: 9998;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-ring.hovering {
+  width: 34px;
+  height: 34px;
+  border-color: rgba(111, 125, 255, 0.7);
+}
+
+.mouse-glow {
+  position: fixed;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(77, 163, 255, 0.08) 0%, transparent 72%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (max-width: 1023px) {
+  .cursor-dot,
+  .cursor-ring,
+  .mouse-glow { display: none; }
+}
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float-soft { animation: float-soft 6s ease-in-out infinite; }

@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    // Allow any local images in the /public folder
+    unoptimized: false,
+  },
+  // Allow images from external sources if needed later
+  experimental: {},
 };
 
 export default nextConfig;
